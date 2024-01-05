@@ -14,8 +14,8 @@ Platform independent.
 ## How to use this Repo?
 
 * Install [DOCKER](https://docs.docker.com/get-docker/)
-* `git clone https://github.com/bullet4prz/SIT.Server-Linux`
-* `cd SIT.Server-Linux`
+* `git clone https://github.com/stayintarkov/SIT.Docker`
+* `cd SIT.Docker`
 * Build the server:
   * `docker build --build-arg SPT=db70e8e4bc480f551b7c71b886e4a72c0e99b469 --label SITCoop -t sitcoop . `
   * `docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop`
