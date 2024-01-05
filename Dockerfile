@@ -36,9 +36,11 @@ RUN rm -rf ./server/user/mods/SITCoop/.git
 
 FROM ubuntu:latest
 WORKDIR /opt/
-RUN apt update && apt upgrade -yq
+RUN apt update && apt upgrade -yq && apt install dos2unix
 COPY --from=builder /opt/server /opt/srv
 COPY bullet.sh /opt/bullet.sh
+# Fix for Windows
+RUN dos2unix /opt/bullet.sh
 
 # Exposing ports (opening them to 0.0.0.0)
 EXPOSE 6969
