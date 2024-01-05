@@ -27,7 +27,7 @@ RUN mv build/ /opt/server/
 WORKDIR /opt
 RUN rm -rf srv/
 ## Grab SIT Coop Server Mod or continue if it exist
-RUN git clone https://github.com/bullet4prz/SIT.Aki-Server-Mod.git ./server/user/mods/SITCoop || true 
+RUN git clone https://github.com/stayintarkov/SIT.Aki-Server-Mod.git ./server/user/mods/SITCoop || true 
 RUN rm -rf ./server/user/mods/SITCoop/.git
 
 ## Run server for 27s to generate configs
