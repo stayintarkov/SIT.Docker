@@ -22,6 +22,7 @@ Platform independent.
     *  *PLEASE NOTE, if you dont set the -v (volume), you will not able to do a required step!*
 * go to your `./server` directory, delete `delete_me` and optional: + install additional mods, do the changes you want in the configs, etc
   * PLEASE NOTE, Docker does the EXPOSE, port 6969 and port 6970 will be available on 0.0.0.0 (meaning ALL addresses on your machine -- the port will be open for your lan, your localhost and vpn address, etc)
+    * you can specify `-p 192.168.12.34:6969:6969` for each port, if you dont want the ports listen on all interfaces
   * `docker start sitcoop`
 
 ## Bugs and Issues
