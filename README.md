@@ -20,8 +20,8 @@ Platform independent.
   * `docker build --build-arg SPT=db70e8e4bc480f551b7c71b886e4a72c0e99b469 --label SITCoop -t sitcoop . `
   * `docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop`
     *  *PLEASE NOTE, if you dont set the -v (volume), you will not able to do a required step!*
-  * go to your `./server` directory, delete `delete_me` and optional: + install additional mods, do the changes you want in the configs, etc
-    * PLEASE NOTE, Docker does the EXPOSE, port 6969 and port 6970 will be available on 0.0.0.0 (meaning ALL addresses on your machine -- the port will be open for your lan, your localhost and vpn address, etc)
+* go to your `./server` directory, delete `delete_me` and optional: + install additional mods, do the changes you want in the configs, etc
+  * PLEASE NOTE, Docker does the EXPOSE, port 6969 and port 6970 will be available on 0.0.0.0 (meaning ALL addresses on your machine -- the port will be open for your lan, your localhost and vpn address, etc)
   * `docker start sitcoop`
 
 ## Bugs and Issues
