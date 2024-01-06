@@ -7,14 +7,15 @@ ARG SIT=-
 ARG SIT_BRANCH=master
 ARG SPT=-
 ARG SPT_BRANCH=master
+ARG NODE=20.10.0
 
 WORKDIR /opt
 
 # Install git git-lfs curl
 RUN apt update && apt install -yq git git-lfs curl
 # Install Node Version Manager and NodeJS
-RUN git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm || true && cd $HOME/.nvm 
-RUN \. $HOME/.nvm/nvm.sh && nvm install 20.10.0
+RUN git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm || true
+RUN \. $HOME/.nvm/nvm.sh && nvm install $NODE
 ## Clone the SPT AKI repo or continue if it exist
 RUN git clone --branch $SPT_BRANCH https://dev.sp-tarkov.com/SPT-AKI/Server.git srv || true
 

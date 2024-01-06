@@ -13,17 +13,27 @@ Platform independent.
 
 ## How to use this Repo?
 
-* Install [DOCKER](https://docs.docker.com/get-docker/)
-* `git clone https://github.com/stayintarkov/SIT.Docker`
-* `cd SIT.Docker`
-* Build the server:
-  * `docker build --build-arg SPT=db70e8e4bc480f551b7c71b886e4a72c0e99b469 --label SITCoop -t sitcoop . `
-  * `docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop`
-    *  *PLEASE NOTE, if you dont set the -v (volume), you will not able to do a required step!*
-* go to your `./server` directory, delete `delete_me` and optional: + install additional mods, do the changes you want in the configs, etc
-  * PLEASE NOTE, Docker does the EXPOSE, port 6969 and port 6970 will be available on 0.0.0.0 (meaning ALL addresses on your machine -- the port will be open for your lan, your localhost and vpn address, etc)
-    * you can specify `-p 192.168.12.34:6969:6969` for each port, if you dont want the ports listen on all interfaces
-  * `docker start sitcoop`
+1. Install [DOCKER](https://docs.docker.com/get-docker/)
+2. `git clone https://github.com/stayintarkov/SIT.Docker`
+3. `cd SIT.Docker`
+4. Build the server:
+   ```bash
+   docker build --build-arg SPT=40b999d04c68f1f52ab152d163c086a1c50f489b --label SITCoop -t sitcoop .
+   ```
+5. Run the image once:
+   ```bash
+   docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop
+   ```
+   - ⚠️ If you don't set the -v (volume), you won't be able to do a required step!
+6. Go to your `./server` directory, delete `delete_me`, and optionally install additional mods, make config changes, etc.
+    - ⚠️ With `-p6969:6969`, you expose the port to `0.0.0.0` (meaning: open for LAN, localhost, VPN address, etc).
+    - You can specify `-p 192.168.12.34:6969:6969` for each port if you don't want the ports to listen on all interfaces. 
+   
+7. Start your server...
+ ```bash
+docker start sitcoop
+```
+8. ... wait a few seconds, then you can connect to `http://YOUR_IP:6969`
 
 ## Bugs and Issues
-Let me know if there is any.. feel free to do a PR.
+Let me know if there are any. Feel free to submit a PR.
