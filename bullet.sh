@@ -8,13 +8,14 @@ if [ -d "/opt/srv" ]; then
 	rm -Rf /opt/srv/* && rm -Rf /opt/srv/*.*
 	rmdir /opt/srv
 	touch /opt/server/delete_me
-	sed -i 's/127.0.0.1/0.0.0.0/g' /opt/server/Aki_Data/Server/configs/http.json
+
 	end=$(date +%s)
 	echo "Files copied to your machine in $(($end-$start)) seconds."
 	echo "Starting the server to generate all the required files"
 	cd /opt/server
 	nohup timeout --preserve-status 10s ./Aki.Server.exe >/dev/null 2>&1 
 	sleep 10
+	sed -i 's/127.0.0.1/0.0.0.0/g' /opt/server/Aki_Data/Server/configs/http.json
 	echo "Follow the instructions to proceed!"
     exit 0
 fi
