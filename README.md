@@ -26,8 +26,9 @@ Platform independent.
    ```
    - ⚠️ If you don't set the -v (volume), you won't be able to do a required step!
 6. Go to your `./server` directory, delete `delete_me`, and optionally install additional mods, make config changes, etc.
-    - ⚠️ With `-p6969:6969`, you expose the port to `0.0.0.0` (meaning: open for LAN, localhost, VPN address, etc).
-    - You can specify `-p 192.168.12.34:6969:6969` for each port if you don't want the ports to listen on all interfaces. 
+    > Using `-p6969:6969`, you expose the port to `0.0.0.0` (meaning: open for LAN, localhost, VPN address, etc).
+    > 
+    > You can specify `-p 192.168.12.34:6969:6969` for each port if you don't want the ports to listen on all interfaces. 
    
 7. Start your server...
  ```bash
