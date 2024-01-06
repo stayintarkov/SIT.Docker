@@ -3,7 +3,11 @@
 ##
 
 FROM ubuntu:latest AS builder
-ARG SPT
+ARG SIT=-
+ARG SIT_BRANCH=master
+ARG SPT=-
+ARG SPT_BRANCH=master
+
 WORKDIR /opt
 
 # Install git git-lfs curl
@@ -12,7 +16,7 @@ RUN apt update && apt install -yq git git-lfs curl
 RUN git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm || true && cd $HOME/.nvm 
 RUN \. $HOME/.nvm/nvm.sh && nvm install 20.10.0
 ## Clone the SPT AKI repo or continue if it exist
-RUN git clone --branch master https://dev.sp-tarkov.com/SPT-AKI/Server.git srv || true
+RUN git clone --branch $SPT_BRANCH https://dev.sp-tarkov.com/SPT-AKI/Server.git srv || true
 
 ## Check out and git-lfs (specific commit --build-arg SPT=xxxx)
 WORKDIR /opt/srv/project 
@@ -27,12 +31,9 @@ RUN mv build/ /opt/server/
 WORKDIR /opt
 RUN rm -rf srv/
 ## Grab SIT Coop Server Mod or continue if it exist
-RUN git clone https://github.com/stayintarkov/SIT.Aki-Server-Mod.git ./server/user/mods/SITCoop || true 
+RUN git clone --branch $SIT_BRANCH https://github.com/stayintarkov/SIT.Aki-Server-Mod.git ./server/user/mods/SITCoop 
+RUN cd ./server/user/mods/SITCoop && git checkout $SIT || true 
 RUN rm -rf ./server/user/mods/SITCoop/.git
-
-## Run server for 27s to generate configs
-# RUN cd server/ && timeout --preserve-status 27s ./Aki.Server.exe || true
-# RUN sed -i 's/127.0.0.1/0.0.0.0/g' server/Aki_Data/Server/configs/http.json
 
 FROM ubuntu:latest
 WORKDIR /opt/

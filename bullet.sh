@@ -8,6 +8,7 @@ if [ -d "/opt/srv" ]; then
 	rm -Rf /opt/srv/* && rm -Rf /opt/srv/*.*
 	rmdir /opt/srv
 	touch /opt/server/delete_me
+	sed -i 's/127.0.0.1/0.0.0.0/g' /opt/server/Aki_Data/Server/configs/http.json
 	end=$(date +%s)
 	echo "Files copied to your machine in $(($end-$start)) seconds."
 	echo "Starting the server to generate all the required files"
