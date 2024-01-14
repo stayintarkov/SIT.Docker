@@ -18,10 +18,10 @@ Platform independent.
 3. `cd SIT.Docker`
 4. Build the server (example for SIT 1.5.1):
    ```bash
-   docker build && \
-      --build-arg SIT=022caac252205e1b9ca30b3610884ad1b05d0dc1 && \
-      --build-arg SPT=40b999d04c68f1f52ab152d163c086a1c50f489b && \
-      --label SITCoop && \
+   docker build `
+      --build-arg SIT=022caac252205e1b9ca30b3610884ad1b05d0dc1 `
+      --build-arg SPT=40b999d04c68f1f52ab152d163c086a1c50f489b `
+      --label SITCoop `
       -t sitcoop .
    ```
 5. Run the image once:
