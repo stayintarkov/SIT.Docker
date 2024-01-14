@@ -44,7 +44,10 @@ COPY bullet.sh /opt/bullet.sh
 # Fix for Windows
 RUN dos2unix /opt/bullet.sh
 
-# Exposing ports (opening them to 0.0.0.0)
+# Set permissions
+RUN chmod o+rwx /opt /opt/srv /opt/srv/* -R
+
+# Exposing ports
 EXPOSE 6969
 EXPOSE 6970
 
