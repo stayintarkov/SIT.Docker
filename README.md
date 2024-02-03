@@ -44,6 +44,24 @@ Platform independent.
 docker start sitcoop
 ```
 8. ... wait a few seconds, then you can connect to `http://YOUR_IP:6969`
+9. 
+### Using Docker Compose
+
+You can also use Docker Compose with the image [available on dockerhub](https://hub.docker.com/r/stayintarkov/stayintarkov).
+
+Create a `docker-compose.yml` with the following contents and run with `docker compose up`:
+```yaml
+version: "3.8"
+services:
+  tarkov:
+    image: stayintarkov/stayintarkov:latest
+    ports: 
+      - "6969:6969"
+      - "6970:6970"
+    volumes:
+      - "/root/tarkov:/opt/server" # Mounts tarkov server to /root/tarkov
+```
+NOTE: You will still have to navigate to the folder (in this case your mounted `/root/tarkov` folder) and delete the `delete_me` file.
 
 ## Bugs and Issues
 Let me know if there are any. Feel free to submit a PR.
