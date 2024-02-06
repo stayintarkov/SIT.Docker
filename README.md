@@ -48,20 +48,9 @@ docker start sitcoop
 ### Using Docker Compose
 
 You can also use Docker Compose with the image [available on dockerhub](https://hub.docker.com/r/stayintarkov/stayintarkov).
+Simply download this repository, and then run `docker compose up`. To stop the server from running, run `docker compose down`.
 
-Create a `docker-compose.yml` with the following contents and run with `docker compose up`:
-```yaml
-version: "3.8"
-services:
-  tarkov:
-    image: stayintarkov/stayintarkov:latest
-    ports: 
-      - "6969:6969"
-      - "6970:6970"
-    volumes:
-      - "/root/tarkov:/opt/server" # Mounts tarkov server to /root/tarkov
-```
-NOTE: You will still have to navigate to the folder (in this case your mounted `/root/tarkov` folder) and delete the `delete_me` file.
+NOTE: You will still have to navigate to the mounted folder and delete the `delete_me` file. (By default the server points to `/root/tarkov`, edit `docker-compose.yml` to change this). 
 
 ## Bugs and Issues
 Let me know if there are any. Feel free to submit a PR.
