@@ -16,18 +16,23 @@ Platform independent.
 1. Install [DOCKER](https://docs.docker.com/get-docker/)
 2. `git clone https://github.com/stayintarkov/SIT.Docker`
 3. `cd SIT.Docker`
-4. Build the server (example for SIT 1.5.1):
+4. Build the server 
+	
+   Example for SIT 1.6.0:
    ```bash
    docker build \
-      --build-arg SIT=022caac252205e1b9ca30b3610884ad1b05d0dc1 \
-      --build-arg SPT=40b999d04c68f1f52ab152d163c086a1c50f489b \
+      --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc \
+      --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 \
+      --build-arg NODE=20.10.0
       --label SITCoop \
       -t sitcoop .
    ```
    Same, but in one line:
    ```bash
-   docker build --build-arg SIT=022caac252205e1b9ca30b3610884ad1b05d0dc1 --build-arg SPT=40b999d04c68f1f52ab152d163c086a1c50f489b --label SITCoop -t sitcoop .
+   docker build --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 --build-arg NODE=20.10.0 --label SITCoop -t sitcoop .
    ```
+   
+   
    > Windows dont handle the \\, use the oneliner!
 5. Run the image once:
    ```bash
@@ -39,9 +44,10 @@ Platform independent.
     > 
     > You can specify `-p 192.168.12.34:6969:6969` for each port if you don't want the ports to listen on all interfaces. 
    
-7. Start your server...
+7. Start your server (and enable auto restart):
  ```bash
 docker start sitcoop
+docker update --restart unless-stopped sitcoop
 ```
 8. ... wait a few seconds, then you can connect to `http://YOUR_IP:6969`
 

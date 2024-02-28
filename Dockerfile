@@ -6,7 +6,7 @@ FROM ubuntu:latest AS builder
 ARG SIT=-
 ARG SIT_BRANCH=master
 ARG SPT=-
-ARG SPT_BRANCH=master
+ARG SPT_BRANCH=3.8.0
 ARG NODE=20.10.0
 
 WORKDIR /opt
@@ -38,7 +38,7 @@ RUN rm -rf ./server/user/mods/SITCoop/.git
 
 FROM ubuntu:latest
 WORKDIR /opt/
-RUN apt update && apt upgrade -yq && apt install dos2unix
+RUN apt update && apt upgrade -yq && apt install -yq dos2unix
 COPY --from=builder /opt/server /opt/srv
 COPY bullet.sh /opt/bullet.sh
 # Fix for Windows
