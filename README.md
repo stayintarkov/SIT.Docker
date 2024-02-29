@@ -5,8 +5,6 @@
 <h4>Why? Because everyone should be able to build, and not rely on unknown builds from unknown sources.</h3>
 
 Platform independent.
-  
-(for 3.7.6 - see the example)
 </div>
 
 ---
@@ -18,7 +16,7 @@ Platform independent.
 3. `cd SIT.Docker`
 4. Build the server 
 	
-   Example for SIT 1.6.0:
+   Example for StayInTarkov.Client-1.10.8824.27027 (0.14.1.1.28965):
    ```bash
    docker build \
       --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc \
@@ -34,6 +32,9 @@ Platform independent.
    
    
    > Windows dont handle the \\, use the oneliner!
+
+   > For version StayInTarkov.Client-1.9.8766.40295 (0.13.9.1.27622), go [here](https://github.com/stayintarkov/SIT.Docker/tree/82727f8dea553a5294b321590d933d9722c26b53)
+
 5. Run the image once:
    ```bash
    docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop
