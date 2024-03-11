@@ -16,30 +16,35 @@ Platform independent.
 3. `cd SIT.Docker`
 4. Build the server 
 	
-   Example for StayInTarkov.Client-1.10.8824.27027 (0.14.1.1.28965):
+   Equivalent to release SITCoop-1.6.0-WithAki-3.8.0-d4ee8f (0.14.1.1.28965):
    ```bash
    docker build \
+      --no-cache \
       --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc \
       --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 \
-      --build-arg NODE=20.10.0
       --label SITCoop \
       -t sitcoop .
    ```
    Same, but in one line:
    ```bash
-   docker build --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 --build-arg NODE=20.10.0 --label SITCoop -t sitcoop .
+   docker build --no-cache --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 --build-arg NODE=20.10.0 --label SITCoop -t sitcoop .
    ```
-   
    
    > Windows dont handle the \\, use the oneliner!
 
-   > For version StayInTarkov.Client-1.9.8766.40295 (0.13.9.1.27622), go [here](https://github.com/stayintarkov/SIT.Docker/tree/82727f8dea553a5294b321590d933d9722c26b53)
+   > For version SITCoop-1.5.1 (0.13.9.1.27622), go [here](https://github.com/stayintarkov/SIT.Docker/tree/82727f8dea553a5294b321590d933d9722c26b53)
 
 5. Run the image once:
    ```bash
    docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop
    ```
    - ⚠️ If you don't set the -v (volume), you won't be able to do a required step!
+
+   - On **Linux** you can include `--user $(id -u):$(id -g)`, this way, file ownership will be set to the user who started the container.
+   ```bash
+   docker run --pull=never --user $(id -u):$(id -g) -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop
+   ```
+
 6. Go to your `./server` directory, delete `delete_me`, and optionally install additional mods, make config changes, etc.
     > Using `-p6969:6969`, you expose the port to `0.0.0.0` (meaning: open for LAN, localhost, VPN address, etc).
     > 
