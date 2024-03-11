@@ -11,7 +11,7 @@ Platform independent.
 
 ## How to use this Repo?
 
-1. Install [DOCKER](https://docs.docker.com/get-docker/)
+1. Install [DOCKER](https://docs.docker.com/engine/install/)
 2. `git clone https://github.com/stayintarkov/SIT.Docker`
 3. `cd SIT.Docker`
 4. Build the server 
@@ -27,7 +27,7 @@ Platform independent.
    ```
    Same, but in one line:
    ```bash
-   docker build --no-cache --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 --build-arg NODE=20.10.0 --label SITCoop -t sitcoop .
+   docker build --no-cache --build-arg SIT=36d7fd71cacb38868f74dfad41beafe6e8dac6dc --build-arg SPT=4b8b62ae8344cbc2a42135ca9225089809832873 --label SITCoop -t sitcoop .
    ```
    
    > Windows dont handle the \\, use the oneliner!

@@ -25,7 +25,7 @@ RUN git checkout $SPT || true
 RUN git-lfs fetch --all && git-lfs pull
 
 ## Install npm dependencies and run build
-RUN \. $HOME/.nvm/nvm.sh && npm install && npm run build:release -- --arch=$([ "$(uname -m)" = "aarch64" ] && echo aarch64 || echo x64) --platform=linux
+RUN \. $HOME/.nvm/nvm.sh && npm install && npm run build:release -- --arch=$([ "$(uname -m)" = "arm64" ] && echo aarch64 || echo x64) --platform=linux
 
 ## Move the built server and clean up the source
 RUN mv build/ /opt/server/
