@@ -16,18 +16,18 @@ Platform independent.
 3. `cd SIT.Docker`
 4. Build the server 
 	
-   Equivalent to release SITCoop-1.6.1-WithAki3.8.0-f2254b (~0.14.1.2.29197):
+   Equivalent to release SITCoop-1.6.2-WithAki-3.8.0-92ab6c (0.14.1.3.29351):
    ```bash
    docker build \
       --no-cache \
-      --build-arg SIT=9d06a91fe582e273e11f296831a3366dfce3f9a5 \
-      --build-arg SPT=f2254b150a17e669fdb40ae7f8484032d1d24943 \
+      --build-arg SIT=4bb11454c3b430971f249106ca7363f675e152bf \
+      --build-arg SPT=92ab6ceda8c30047a8019d8c743024d332b3309c \
       --label SITCoop \
       -t sitcoop .
    ```
    Same, but in one line:
    ```bash
-   docker build --no-cache --build-arg SIT=9d06a91fe582e273e11f296831a3366dfce3f9a5 --build-arg SPT=f2254b150a17e669fdb40ae7f8484032d1d24943 --label SITCoop -t sitcoop .
+   docker build --no-cache --build-arg SIT=4bb11454c3b430971f249106ca7363f675e152bf --build-arg SPT=92ab6ceda8c30047a8019d8c743024d332b3309c --label SITCoop -t sitcoop .
    ```
    
    > Windows dont handle the \\, use the oneliner!
@@ -36,7 +36,7 @@ Platform independent.
 
 5. Run the image once:
    ```bash
-   docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -it --name sitcoop sitcoop
+   docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -p 6971:6971 -p 6972:6972 -it --name sitcoop sitcoop
    ```
    - ⚠️ If you don't set the -v (volume), you won't be able to do a required step!
 
